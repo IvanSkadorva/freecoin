@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AppService} from "../../app.service";
 
 @Component({
   selector: 'send-form',
@@ -10,8 +11,9 @@ export class FormComponent implements OnInit {
   form: FormGroup;
 
 
-  constructor(    private formBuilder: FormBuilder
-  ) { }
+  constructor(private formBuilder: FormBuilder, private formService: AppService
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -24,7 +26,7 @@ export class FormComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-    console.log(this.form.value);
+    this.formService.sendMoney(this.form.value)
   }
 
 }

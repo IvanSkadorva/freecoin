@@ -13,6 +13,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { LogComponent } from './log/log.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {AppService} from "../app.service";
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { LogComponent } from './log/log.component';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

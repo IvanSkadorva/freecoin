@@ -1,3 +1,16 @@
-<mat-card>
-  <code>log works!</code>
+<mat-card class="log">
+  <code *ngIf="(chain$ | async) ; else isMining == true ? mining : start">{{ (chain$ | async)?.chain[0].ts}}</code>
+  <code *ngFor="let chain of (chain$ | async)?.chain ; index as i" class="log__chain">
+    {{ i + 1 }}.
+    Current time {{getCurrentTime()}},
+    prevHash: {{chain.prevHash}},
+    amount: {{chain.transaction.amount}},
+    payer: {{chain.transaction.payer}},
+    payee: {{chain.transaction.payee}},
+    ts: {{chain.ts}},
+    nonce: {{ chain.nonce }}
+  </code>
+  <ng-template #mining>Mining ⛏ ️...</ng-template>
+  <ng-template #start>See your logs here🔗️ ...</ng-template>
+
 </mat-card>

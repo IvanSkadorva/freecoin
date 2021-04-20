@@ -1,0 +1,8 @@
+{
+  "/wallet/*": {
+    "target": "https://freecoin-backend.herokuapp.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
