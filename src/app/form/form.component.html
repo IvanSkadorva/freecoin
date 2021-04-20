@@ -1,0 +1,26 @@
+<div class="form">
+  <div class="form__container">
+    <form [formGroup]="form" (submit)="submit()">
+      <mat-form-field class="form__field" appearance="outline">
+        <mat-label> Name
+        </mat-label>
+        <label>
+          <input matInput formControlName="name" required>
+        </label>
+        <mat-error *ngIf="form.controls.name.touched && form.controls.name.invalid">
+          <span *ngIf="form.controls.name.errors.required">This field is mandatory.</span>
+          <span *ngIf="form.controls.name.errors.pattern">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form__field" appearance="outline">
+        <mat-label> Amount
+        </mat-label>
+        <label>
+          <input matInput formControlName="amount" type="number">
+        </label>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class='form__send'>Send</button>
+      <button mat-raised-button color="primary" type="submit" class='form__receive'>Receive</button>
+    </form>
+  </div>
+</div>

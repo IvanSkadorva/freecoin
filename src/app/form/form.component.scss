@@ -1,0 +1,15 @@
+.form{
+  text-align: center;
+  margin-bottom: 3em;
+  &__container {
+    width: 20em;
+    margin: 5em auto 0;
+  }
+
+  &__field {
+    display: block
+  }
+  &__send{
+    margin-right: 3em;
+  }
+}
