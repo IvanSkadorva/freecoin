@@ -1,5 +1,4 @@
 <mat-card class="log">
-  <code *ngIf="(chain$ | async) ; else isMining == true ? mining : start">{{ (chain$ | async)?.chain[0].ts}}</code>
   <code *ngFor="let chain of (chain$ | async)?.chain ; index as i" class="log__chain">
     {{ i + 1 }}.
     Current time {{getCurrentTime()}},
