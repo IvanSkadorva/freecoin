@@ -22,7 +22,6 @@ export class LogComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.subscriptions.push(
       this.appService.chain$.subscribe((chain: Observable<object>) => {
-        console.log(chain);
         this.chain$ = chain;
         this.appService.setIsMining(false)
       }),
@@ -30,7 +29,6 @@ export class LogComponent implements AfterViewInit, OnDestroy {
     this.subscriptions.push(
       this.appService.isMining$.subscribe(( flag: boolean) => {
         this.isMining = flag;
-        console.log(this.isMining)
       })
     );
   }
